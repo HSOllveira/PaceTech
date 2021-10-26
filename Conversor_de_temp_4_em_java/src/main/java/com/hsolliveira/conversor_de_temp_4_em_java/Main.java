@@ -4,7 +4,7 @@
  */
 package com.hsolliveira.conversor_de_temp_4_em_java;
 
-import java.io.*;
+import java.io.*; //Imports de io para dados no console
 
 /**
  *
@@ -12,39 +12,39 @@ import java.io.*;
  */
 public class Main {
 
-    static float[] tempr = new float[5];
-    static float[] tempc = new float[5];
-    static int[] hora = new int[5];
-    static int Menu = 0;
+    static float[] tempr = new float[5]; //array de dados float de temperatura que o usuário colocou
+    static float[] tempc = new float[5]; //array de dados float de temperatura convertidas pelo programa
+    static int[] hora = new int[5]; //array de dados int que armazena as horas das medições
+    static int Menu = 0; //estágio do menu
 
-    public static void main(String[] args)
+    public static void main(String[] args) //le main
             throws IOException {
 
-        System.out.println("Qual conversão fazer?");
+        System.out.println("Qual conversão fazer?");//Escreve dados no console
         System.out.println("1: Celsius para Farenheit");
         System.out.println("2: Farenheit para Celsius");
         System.out.println("0: Sair");
-        Menu = Integer.parseInt(Leitor());
-        if (Menu != 0) {
-            PegaDados();
-            Ordenador();
-            if (Menu == 1) {
-                for (int x = 1; x <= 4; x++) {
+        Menu = Integer.parseInt(Leitor()); //pega dado que o usuário digitou em string, converte para int e armazena em "menu"
+        if (Menu != 0) { // se usuário quer converter...
+            PegaDados(); // chama method que pega os dados e converte as temps
+            Ordenador(); // chama method que ordena os dados em ordem crescente via bublesort
+            if (Menu == 1) { //se usuário conveteu de Celsius para Farenheit...
+                for (int x = 1; x <= 4; x++) { //printa os dados na tela sequencialmente dos arrays (4x)
                     System.out.println("Temperatura: " + tempr[x] + "ºC, registrada ás: " + hora[x] + "h  corresponde a: " + tempc[x] + "ºF.");
                 }
             }
-            else {
-                for (int x = 1; x <= 4; x++) {
+            else { //se usuário conveteu de Farenheit para Celsius...
+                for (int x = 1; x <= 4; x++) { //printa os dados na tela sequencialmente dos arrays (4x)
                     System.out.println("Temperatura: " + tempr[x] + "ºF, registrada ás: " + hora[x] + "h  corresponde a: " + tempc[x] + "ºC.");
                 }
             }
         }
-        else {
-            System.exit(0);
+        else { //se usuárioo colocou 0 no menu...
+            System.exit(0); //Fecha tudo
     }
-}
+} //fim do main
 
-public static void Ordenador()
+public static void Ordenador() //method que ordena os dados dentro dos arrays via bublesort
             throws IOException {
         float trocaa, trocab;
         int trocah;
@@ -66,7 +66,7 @@ public static void Ordenador()
         }
     }
 
-    public static void PegaDados()
+    public static void PegaDados() //method que pergunta os dados para o usuário e armazena nos arrays
             throws IOException {
         for (int i = 1; i < 5; i++) {
             System.out.println("Digite a temperatura " + i + ": ");
@@ -81,7 +81,7 @@ public static void Ordenador()
         }
     }
 
-    public static String Leitor()
+    public static String Leitor() //função sem argumento que lê os dados que o usuário colocou no console (parecido com leia do visualg)
             throws IOException {
         String dados;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -89,12 +89,12 @@ public static void Ordenador()
         return dados;
     }
 
-    public static float ConverterCF(float temp) {
+    public static float ConverterCF(float temp) { //funçao que converte de celsius para farenheit
         float res = (float) ((temp * 1.8) + 32);
         return res;
     }
 
-    public static float ConverterFC(float temp) {
+    public static float ConverterFC(float temp) { //funçao que converte de celsius para farenheit
         float res = (float) ((temp - 32) * 0.5556);
         return res;
     }
