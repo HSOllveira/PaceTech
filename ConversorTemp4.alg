@@ -1,5 +1,5 @@
-algoritmo "Conversora de Dinheiro e temperatura com menu"
-// Função :   Loga 4 temperaturas e as horas que foram medidas, faz conversão
+algoritmo "Pega dados de 4 leituras de temperatura e o horÃ¡rio que foram feitas, converte de farenheit para celsius e vice versa e as ordena em ordem crescente."
+// FunÃ§Ã£o :   Loga 4 temperaturas e as horas que foram medidas, faz conversÃ£o
 //            e as ordena em ordem crescente
 // Autor : Higor (HSOliveira)
 // Data : 25/10/21
@@ -38,27 +38,27 @@ inicio
 repita
     numero <- 1 //Reseta a contagem de temp
     escreval("")
-    escreval("Escolha a conversão a ser feita")
+    escreval("Escolha a conversÃ£o a ser feita")
     escreval("1: Farenheit para Celsius")
     escreval("2: Celsius para Farenheit")
     escreval("0: Sair")
-    leia(menu) //Lê o input do usuario e armazena em menu
+    leia(menu) //LÃª o input do usuario e armazena em menu
     se menu = 1 entao //se farenheit para celsius
-        para numero de 1 ate 4 faca //pede para o usuário colocar os dados 4x
-            escreval("Digite a temperatura nº", numero)
+        para numero de 1 ate 4 faca //pede para o usuÃ¡rio colocar os dados 4x
+            escreval("Digite a temperatura nÂº", numero)
             leia(leiturat[numero])//joga leitura do usuario no array leiturat de mesmo numero do loop
-            repita //repita de checagem pra ver se a hora é valida (meio preguiçoso mas funciona)
+            repita //repita de checagem pra ver se a hora Ã© valida (meio preguiÃ§oso mas funciona)
             repita
-                escreval("Digite a hora da leitura nº", numero," 'hh'")
+                escreval("Digite a hora da leitura nÂº", numero," 'hh'")
                 leia(leiturah[numero])//joga a hora lida no array leiturah de mesmo numero do loop
             ate leiturah[numero] < 24
             ate leiturah[numero] > (-1)
-            celsius[numero] <- conversorfc(leiturat[numero])// executa função externa de conversão que joga no array celsius de msm numero do loop
+            celsius[numero] <- conversorfc(leiturat[numero])// executa funÃ§Ã£o externa de conversÃ£o que joga no array celsius de msm numero do loop
         fimpara
-        para i de 1 ate 4 faca //maquininha que usa bublesort para ordenar as temperaturas (usa o pós conversão como base, mas nao faz difereça)
+        para i de 1 ate 4 faca //maquininha que usa bublesort para ordenar as temperaturas (usa o pÃ³s conversÃ£o como base, mas nao faz difereÃ§a)
             para j de i + 1 ate 4 faca
                 se celsius[i] > celsius [j] entao
-                    trocatc <- celsius[i]//troca todos os dados de posição ao mesmo tempo para não tirar do "sincronismo"
+                    trocatc <- celsius[i]//troca todos os dados de posiÃ§Ã£o ao mesmo tempo para nÃ£o tirar do "sincronismo"
                     trocatr <- leiturat[i]
                     trocah <- leiturah[i]
                     celsius[i] <- celsius[j]
@@ -70,18 +70,18 @@ repita
                 fimse
             fimpara
         fimpara
-        escreval("Temperatura",leiturat[1],"ºF ,registrada às: ",leiturah[1],"h corresponde a: ", celsius[1],"ºC")//imprime os resultados ordenados
-        escreval("Temperatura",leiturat[2],"ºF ,registrada às: ",leiturah[2],"h corresponde a: ", celsius[2],"ºC")
-        escreval("Temperatura",leiturat[3],"ºF ,registrada às: ",leiturah[3],"h corresponde a: ", celsius[3],"ºC")
-        escreval("Temperatura",leiturat[4],"ºF ,registrada às: ",leiturah[4],"h corresponde a: ", celsius[4],"ºC")
+        escreval("Temperatura",leiturat[1],"ÂºF ,registrada Ã s: ",leiturah[1],"h corresponde a: ", celsius[1],"ÂºC")//imprime os resultados ordenados
+        escreval("Temperatura",leiturat[2],"ÂºF ,registrada Ã s: ",leiturah[2],"h corresponde a: ", celsius[2],"ÂºC")
+        escreval("Temperatura",leiturat[3],"ÂºF ,registrada Ã s: ",leiturah[3],"h corresponde a: ", celsius[3],"ÂºC")
+        escreval("Temperatura",leiturat[4],"ÂºF ,registrada Ã s: ",leiturah[4],"h corresponde a: ", celsius[4],"ÂºC")
     fimse
-    se menu = 2 entao //mesma coisa do menu 1 porém faz celsius para farenheit
+    se menu = 2 entao //mesma coisa do menu 1 porÃ©m faz celsius para farenheit
         para numero de 1 ate 4 faca
-            escreval("Digite a temperatura nº", numero)
+            escreval("Digite a temperatura nÂº", numero)
             leia(leiturat[numero])
             repita
             repita
-                escreval("Digite a hora da leitura nº", numero," 'hh'")
+                escreval("Digite a hora da leitura nÂº", numero," 'hh'")
                 leia(leiturah[numero])
             ate leiturah[numero] < 24
             ate leiturah[numero] > (-1)
@@ -102,17 +102,17 @@ repita
                 fimse
             fimpara
         fimpara
-        escreval("Temperatura",leiturat[1],"ºC ,registrada às: ",leiturah[1],"h corresponde a: ", farenheit[1],"ºF")
-        escreval("Temperatura",leiturat[2],"ºC ,registrada às: ",leiturah[2],"h corresponde a: ", farenheit[2],"ºF")
-        escreval("Temperatura",leiturat[3],"ºC ,registrada às: ",leiturah[3],"h corresponde a: ", farenheit[3],"ºF")
-        escreval("Temperatura",leiturat[4],"ºC ,registrada às: ",leiturah[4],"h corresponde a: ", farenheit[4],"ºF")
+        escreval("Temperatura",leiturat[1],"ÂºC ,registrada Ã s: ",leiturah[1],"h corresponde a: ", farenheit[1],"ÂºF")
+        escreval("Temperatura",leiturat[2],"ÂºC ,registrada Ã s: ",leiturah[2],"h corresponde a: ", farenheit[2],"ÂºF")
+        escreval("Temperatura",leiturat[3],"ÂºC ,registrada Ã s: ",leiturah[3],"h corresponde a: ", farenheit[3],"ÂºF")
+        escreval("Temperatura",leiturat[4],"ÂºC ,registrada Ã s: ",leiturah[4],"h corresponde a: ", farenheit[4],"ÂºF")
     fimse
-    se menu = 0 entao // check se o usuário quer sair do programa e seta a booleana sair
+    se menu = 0 entao // check se o usuÃ¡rio quer sair do programa e seta a booleana sair
         sair <- VERDADEIRO
     fimse
     se sair = FALSO entao
         escreval("")
-        escreval("Deseja fazer outra conversão?")
+        escreval("Deseja fazer outra conversÃ£o?")
         escreval("0:Sair")
         escreval("Qualquer outro numero para repetir")
         leia (repetir)
