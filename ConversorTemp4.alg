@@ -1,4 +1,4 @@
-algoritmo "Pega dados de 4 leituras de temperatura e o horário que foram feitas, converte de farenheit para celsius e vice versa e as ordena em ordem crescente."
+algoritmo "ConversorTemp4"
 // Função :   Loga 4 temperaturas e as horas que foram medidas, faz conversão
 //            e as ordena em ordem crescente
 // Autor : Higor (HSOliveira)
